@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 // Ignacio Carlo Veas Mattheos 20857446-9
 void main() {
   runApp(const MyApp());
@@ -56,6 +57,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0; // Contador
+  String icon1 = "assets/icons/Icono1.svg";
 
   void _incrementCounter() {
     setState(() {
@@ -125,6 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      
       /*floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Más',
@@ -138,21 +141,31 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
 
+          // Reducir contador  
           FloatingActionButton(
             onPressed: _reduceCounter,
             child: const Icon(Icons.minimize),
              tooltip: 'Menos'
           ),
+
+          /*// Reiniciar Contador
+          SvgPicture.asset(
+          icon1,
+          ),*/
+
            FloatingActionButton(
             onPressed: _zeroCounter,
-            child: const Icon(Icons.restore),
+            child: SvgPicture.asset(icon1),
              tooltip: 'Reiniciar'
           ),
+
+          // Aumentar Contador
           FloatingActionButton(
             onPressed: _incrementCounter,
             child: const Icon(Icons.add),
              tooltip: 'Más'
           ),
+          
           ],
         )
       ],
