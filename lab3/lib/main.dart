@@ -58,6 +58,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0; // Contador
   String icon1 = "assets/icons/Icono1.svg";
+  String font1 = "fonts/SuperMario256.ttf";
 
   void _incrementCounter() {
     setState(() {
@@ -118,11 +119,12 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Número actual:',
+              'Numero actual:',
+              style: TextStyle(fontFamily: 'Mario', fontSize: 25)
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: TextStyle(fontFamily: 'Mario', fontSize: 30),
             ),
           ],
         ),
