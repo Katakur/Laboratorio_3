@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'pages.dart';
+
 // Ignacio Carlo Veas Mattheos 20857446-9
 void main() {
   runApp(const MyApp());
