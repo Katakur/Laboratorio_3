@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lab3/main.dart';
+import 'details.dart';
+import 'list.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -85,26 +87,24 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
 
           // Reducir contador  
-          FloatingActionButton(
+          ElevatedButton(
             onPressed: _reduceCounter,
             child: const Icon(Icons.minimize),
-             tooltip: 'Menos'
+            //tooltip: 'Menos'
           ),
 
-           FloatingActionButton(
+          ElevatedButton(
             onPressed: _zeroCounter,
             child: SvgPicture.asset(icon1),
-             tooltip: 'Reiniciar'
+            //tooltip: 'Reiniciar'
           ),
 
           // Aumentar Contador
-          FloatingActionButton(
+          ElevatedButton(
             onPressed: _incrementCounter,
             child: const Icon(Icons.add),
-             tooltip: 'Más'
+            //tooltip: 'Más'
           ),
-          
-          
           ],
         ),
       ],
@@ -112,6 +112,26 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ),
       ),
+      persistentFooterAlignment: AlignmentDirectional.bottomCenter,
+      persistentFooterButtons: <Widget>[
+      ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Details())); //ir a Detail
+            },
+            child: const Text("Detalles")),
+        ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const List())); //ir a List
+            },
+            child: const Text("Listas"))
+      ]
     );
   }
 }
+
