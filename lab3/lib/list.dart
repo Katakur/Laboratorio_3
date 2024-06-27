@@ -37,8 +37,7 @@ class List extends StatelessWidget {
                 color: Color.fromARGB(255, 21, 124, 241),
                 child: const Center(
                   child: Text("3er objeto",  style: TextStyle(fontFamily: "Mario", fontSize: 20)),
-                )
-                ), 
+                )), 
           ],
         ),
       ),

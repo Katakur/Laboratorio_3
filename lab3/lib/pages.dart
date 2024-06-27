@@ -10,7 +10,13 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  //State<MyHomePage> createState() => _MyHomePageState();
+
+  State<MyHomePage> createState() {
+    print('create state');
+    print('------------------------------');
+    return _MyHomePageState();
+  } 
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -19,6 +25,54 @@ class _MyHomePageState extends State<MyHomePage> {
   String font1 = "fonts/SuperMario256.ttf";
   String iconActual = "assets/icons/Neutral.svg";
   String _estadoActual = " ";
+
+  _MyHomePageState() {
+    print('_MyHomePageState constructor [creando objeto]');
+    print('------------------------------');
+  }
+
+  void initState() {
+    super.initState();
+    print('initState [Inicializando estado actual]');
+    print('initState [mounted = $mounted]');
+    print('------------------------------');
+  }
+
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('didChangeDependencies [Dependencias cambiadas]');
+    print('------------------------------');
+  }
+
+  void didUpdateWidget(covariant MyHomePage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print('didUpdateWidget [Widget actualizado]');
+    print('------------------------------');
+  }
+
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    print('setState [Estado restablecido]');
+    print('------------------------------');
+  }
+
+  void deactivate() {
+    print('deactivate [Widget siendo removido del arbol]');
+    print('------------------------------');
+    super.deactivate();
+  }
+
+  void dispose() {
+    super.dispose();
+    print('dispose: eliminando esta');
+    print('dispose: mounted = $mounted');
+    print('------------------------------');
+  }
+
+  void reassemble() {
+    super.reassemble();
+    print('reassemble: mounted = $mounted');
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -67,7 +121,6 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
 
-            //SvgPicture.asset(iconActual, height: 10, width: 10,),
             const Text(
               'Numero actual:',
               style: TextStyle(fontFamily: 'Mario', fontSize: 25)
