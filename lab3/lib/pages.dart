@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lab3/emote.dart';
 import 'package:lab3/main.dart';
+import 'package:lab3/sensors.dart';
 import 'details.dart';
 import 'list.dart';
 
@@ -8,7 +11,6 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
   final String title;
-
   @override
   //State<MyHomePage> createState() => _MyHomePageState();
 
@@ -24,6 +26,11 @@ class _MyHomePageState extends State<MyHomePage> {
   String icon1 = "assets/icons/Icono1.svg";
   String font1 = "fonts/SuperMario256.ttf";
   String iconActual = "assets/icons/Neutral.svg";
+  String iconList1 = "assets/icons/Gesto.svg";
+  String iconList2 = "assets/icons/Lista.svg";
+  String iconList3 = "assets/icons/Sensor.svg";
+  String iconList4 = "assets/icons/Info.svg";
+  String iconList5 = "assets/icons/Inicio.svg";
   String _estadoActual = " ";
 
   _MyHomePageState() {
@@ -109,11 +116,72 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print('build [Building Widget]');
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
+      
+       drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            //SvgPicture.asset(icon1),
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.amber,
+              ),
+              child: Text('Menu'),
+            ),
+            ListTile(
+              title: const Text('Inicio'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            
+            ListTile(
+              title: const Text('Detalles'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Details()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Lista'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const List()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Sensores'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Sensors()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Gestos'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Emotes()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      
       body: Center(
         child: Card(
           color: Color.fromARGB(255, 242, 240, 215),
@@ -165,25 +233,6 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ),
       ),
-      persistentFooterAlignment: AlignmentDirectional.bottomCenter,
-      persistentFooterButtons: <Widget>[
-      ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const Details())); //ir a Detail
-            },
-            child: const Text("Detalles")),
-        ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const List())); //ir a List
-            },
-            child: const Text("Listas"))
-      ]
     );
   }
 }

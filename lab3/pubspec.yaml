@@ -65,6 +65,11 @@ flutter:
     - assets/icons/Ganaste.svg
     - assets/icons/Perdiste.svg
     - assets/icons/Neutral.svg
+    - assets/icons/Gesto.svg
+    - assets/icons/Lista.svg
+    - assets/icons/Sensor.svg
+    - assets/icons/Info.svg
+    - assets/icons/Inicio.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
